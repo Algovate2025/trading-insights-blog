@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FTMO Erfahrungen: Mein ehrliches Fazit nach 8 Monaten - Trading Insights</title>
+  <meta name="description" content="Meine FTMO Erfahrungen nach 8 Monaten, zwei gescheiterten und einer bestandenen Challenge. Was ich gelernt habe und ob sich FTMO lohnt.">
+  <link rel="canonical" href="https://trading-insights.de/ftmo/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-light: #666;
+      --text-lighter: #999;
+      --bg: #fafafa;
+      --white: #fff;
+      --border: #eee;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --warning: #f59e0b;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 17px;
+    }
+    
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    .back-link {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    
+    .back-link:hover { color: var(--text); }
+    
+    article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    
+    .article-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-lighter);
+    }
+    
+    .tag {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.25rem;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-light);
+    }
+    
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .author-info span { display: block; }
+    .author-info .name { font-weight: 600; }
+    .author-info .date { font-size: 0.9rem; color: var(--text-lighter); }
+    
+    .content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      margin: 2.5rem 0 1rem;
+    }
+    
+    .content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .content ul, .content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+    
+    .content li { margin-bottom: 0.5rem; }
+    
+    .highlight-box {
+      background: var(--white);
+      border-left: 4px solid var(--warning);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .timeline {
+      margin: 2rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--border);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.65rem;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    
+    .timeline-item.success::before { background: var(--success); }
+    .timeline-item.fail::before { background: #dc2626; }
+    
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--text-lighter);
+      margin-bottom: 0.25rem;
+    }
+    
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-box {
+      background: var(--white);
+      padding: 1.25rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .stat-value.negative { color: #dc2626; }
+    .stat-value.positive { color: var(--success); }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-lighter);
+      margin-top: 0.25rem;
+    }
+    
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .pros, .cons {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    
+    .pros h4 { color: var(--success); }
+    .cons h4 { color: #dc2626; }
+    
+    .pros ul, .cons ul { margin: 1rem 0 0 1.25rem; }
+    
+    .rating-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .rating-score {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    
+    .rating-score span {
+      font-size: 1.25rem;
+      color: var(--text-lighter);
+    }
+    
+    .stars {
+      color: #fbbf24;
+      font-size: 1.5rem;
+    }
+    
+    .related {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .related h3 { margin-bottom: 1rem; }
+    
+    .related-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .related-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .related-links a:hover { text-decoration: underline; }
+    
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    footer p {
+      color: var(--text-lighter);
+      font-size: 0.85rem;
+    }
+    
+    @media (max-width: 640px) {
+      h1 { font-size: 1.75rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .pros-cons { grid-template-columns: 1fr; }
+      .rating-box { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Trading Insights</a>
+    <a href="/" class="back-link">← Zurück zur Übersicht</a>
+  </div>
+</header>
+
+<article>
+  <div class="article-header">
+    <div class="article-meta">
+      <span class="tag">Gemischt</span>
+      <span>8 Min. Lesezeit</span>
+      <span>24. Januar 2026</span>
+    </div>
+    <h1>FTMO Challenge nach 8 Monaten: Mein ehrliches Fazit</h1>
+    <p class="subtitle">Zwei gescheiterte Challenges, eine bestandene – und was ich dabei über mich selbst gelernt habe.</p>
+    <div class="author-box">
+      <div class="author-avatar">TB</div>
+      <div class="author-info">
+        <span class="name">Timon B.</span>
+        <span class="date">24. Januar 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <p>FTMO ist wahrscheinlich die bekannteste Prop-Trading Firma weltweit. Überall auf YouTube, Instagram, in Foren – jeder redet davon. Also wollte ich es selbst ausprobieren. Nach 8 Monaten und drei Versuchen kann ich jetzt ein differenziertes Fazit ziehen.</p>
+    
+    <p>Spoiler: Es ist komplizierter als die Success-Stories auf Social Media vermuten lassen.</p>
+
+    <h2>Meine FTMO-Reise: Die Timeline</h2>
+    
+    <div class="timeline">
+      <div class="timeline-item fail">
+        <div class="timeline-date">Mai 2025</div>
+        <div class="timeline-title">Challenge #1: Gescheitert</div>
+        <div class="timeline-desc">Nach 2 Wochen das Daily Loss Limit gerissen. Zu aggressiv getradet, zu wenig Geduld. 155€ Challengegebühr weg.</div>
+      </div>
+      <div class="timeline-item fail">
+        <div class="timeline-date">Juli 2025</div>
+        <div class="timeline-title">Challenge #2: Gescheitert</div>
+        <div class="timeline-desc">Dieses Mal konservativer, aber trotzdem in Woche 3 das Maximum Drawdown erreicht. NFP-News haben mich erwischt. Wieder 155€.</div>
+      </div>
+      <div class="timeline-item success">
+        <div class="timeline-date">September 2025</div>
+        <div class="timeline-title">Challenge #3: Bestanden!</div>
+        <div class="timeline-desc">Endlich! Mit einem völlig neuen Ansatz (weniger Trades, größere Timeframes) nach 26 Tagen bestanden.</div>
+      </div>
+      <div class="timeline-item success">
+        <div class="timeline-date">Oktober 2025</div>
+        <div class="timeline-title">Verification bestanden</div>
+        <div class="timeline-desc">Die zweite Phase war entspannter. Nach 18 Tagen durch. Jetzt Funded Trader!</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">November 2025 - Heute</div>
+        <div class="timeline-title">Funded Account</div>
+        <div class="timeline-desc">Erste Auszahlung im Dezember: 487€. Nicht die Welt, aber echtes Geld.</div>
+      </div>
+    </div>
+
+    <h2>Die Zahlen: Was hat's gekostet, was kam rein?</h2>
+    
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-value negative">-465€</div>
+        <div class="stat-label">Challengegebühren (3x)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value positive">+487€</div>
+        <div class="stat-label">Auszahlung bisher</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">+22€</div>
+        <div class="stat-label">Netto-Ergebnis</div>
+      </div>
+    </div>
+    
+    <p>Ja, ihr seht richtig. Nach 8 Monaten bin ich gerade mal 22€ im Plus. Klingt nicht sexy, oder? Aber: Ich habe jetzt einen Funded Account und die Challengegebühr für die bestandene Challenge wurde erstattet.</p>
+    
+    <p>Die nächsten Monate werden zeigen, ob sich das langfristig lohnt.</p>
+
+    <h2>Was ich gelernt habe (auf die harte Tour)</h2>
+    
+    <p><strong>1. Die Challenge ist härter als gedacht</strong></p>
+    <p>Auf dem Papier klingen 10% Gewinnziel in 30 Tagen machbar. In der Praxis, mit den strengen Drawdown-Regeln? Ein ganz anderes Spiel. Man tradet anders, wenn echtes Geld auf dem Spiel steht.</p>
+    
+    <p><strong>2. News Trading ist Gift</strong></p>
+    <p>Meine zweite Challenge ist wegen NFP draufgegangen. Seitdem: Keine Trades 30 Minuten vor oder nach wichtigen News.</p>
+    
+    <p><strong>3. Weniger ist mehr</strong></p>
+    <p>In meinen ersten beiden Challenges habe ich 10-15 Trades pro Tag gemacht. Bei der dritten nur noch 2-3. Bessere Ergebnisse, weniger Stress.</p>
+
+    <div class="highlight-box">
+      <h4>⚠️ Realitätscheck</h4>
+      <p>Laut FTMO selbst bestehen nur etwa 10% der Trader die Challenge beim ersten Versuch. Lass dir von niemandem erzählen, dass das easy ist.</p>
+    </div>
+
+    <h2>Für wen ist FTMO geeignet?</h2>
+    
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>✓ Gut für</h4>
+        <ul>
+          <li>Erfahrene Trader mit Strategie</li>
+          <li>Disziplinierte Persönlichkeiten</li>
+          <li>Menschen mit Geduld</li>
+          <li>Wer aktiv traden will</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>✗ Nicht gut für</h4>
+        <ul>
+          <li>Absolute Anfänger</li>
+          <li>Leute mit wenig Zeit</li>
+          <li>Wer schnelle Gewinne sucht</li>
+          <li>Emotionale Trader</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Mein Fazit</h2>
+    
+    <p>FTMO ist legitim, professionell und bietet eine echte Chance auf Fremdkapital. Aber es ist kein Selbstläufer. Die meisten werden scheitern – mich eingeschlossen, zweimal.</p>
+    
+    <p>Würde ich es empfehlen? Ja, aber nur wenn du:</p>
+    <ul>
+      <li>Bereits eine profitable Strategie hast (auf Demo getestet)</li>
+      <li>Emotional stabil bist</li>
+      <li>Das Geld für die Challengegebühr übrig hast</li>
+    </ul>
+    
+    <p>Für alle anderen: Es gibt Alternativen. Schaut euch <a href="/peak-momentum/">Peak Momentum</a> an – da braucht man keine eigene Trading-Erfahrung.</p>
+
+    <div class="rating-box">
+      <div>
+        <div class="rating-score">3.8<span>/5</span></div>
+        <div class="stars">★★★★☆</div>
+      </div>
+      <span style="color: var(--text-lighter);">Meine Gesamtbewertung</span>
+    </div>
+
+    <div class="related">
+      <h3>Weitere Erfahrungsberichte</h3>
+      <div class="related-links">
+        <a href="/peak-momentum/">Peak Momentum: Nach 6 Monaten KI-Trading</a>
+        <a href="/the5ers/">The5%ers Review: Die fairste Prop-Firma?</a>
+        <a href="/etoro/">eToro Copy Trading: 1 Jahr Erfahrung</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section style="max-width: 720px; margin: 0 auto; padding: 0 1.5rem 3rem;">
+  <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee;">
+    <h3 style="font-size: 1.1rem; margin-bottom: 1.5rem;">Kommentar schreiben</h3>
+    <form action="/kommentar-danke/" method="get" style="background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 1.25rem;">
+      <input type="text" name="name" placeholder="Dein Name" required style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 0.75rem; font-size: 0.95rem;">
+      <textarea name="comment" placeholder="Dein Kommentar..." required style="width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 0.75rem; font-size: 0.95rem; min-height: 100px; resize: vertical;"></textarea>
+      <button type="submit" style="padding: 0.6rem 1.25rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; font-weight: 500; cursor: pointer;">Absenden</button>
+      <p style="font-size: 0.8rem; color: #999; margin-top: 0.75rem;">Kommentare werden vor der Veröffentlichung geprüft.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Trading Insights · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
+</footer>
+
+</body>
+</html>

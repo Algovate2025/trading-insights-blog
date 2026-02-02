@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Insights - Mein Trading-Tagebuch</title>
+  <meta name="description" content="Persönlicher Blog über meine Trading-Reise seit 2024. Ehrliche Erfahrungsberichte, Fehler und Learnings.">
+  <meta name="author" content="Timon B.">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-light: #666;
+      --text-lighter: #999;
+      --bg: #fafafa;
+      --white: #fff;
+      --border: #eee;
+      --accent: #2563eb;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger: #dc2626;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-left: 1.5rem;
+    }
+    
+    nav a:hover { color: var(--text); }
+    
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    
+    .intro {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .intro h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .intro p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+    
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-meta strong { display: block; }
+    .author-meta span { font-size: 0.9rem; color: var(--text-lighter); }
+    
+    .year-divider {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      color: var(--text-lighter);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .articles {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .article-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    
+    .article-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+    
+    .article-date { color: var(--text-lighter); }
+    
+    .article-tag {
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .tag-positive { background: #dcfce7; color: #166534; }
+    .tag-mixed { background: #fef3c7; color: #92400e; }
+    .tag-negative { background: #fee2e2; color: #991b1b; }
+    .tag-neutral { background: #f3f4f6; color: #4b5563; }
+    .tag-update { background: #dbeafe; color: #1e40af; }
+    
+    .article-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    
+    .article-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .article-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-lighter);
+    }
+    
+    .rating { display: flex; align-items: center; gap: 0.25rem; }
+    .stars { color: #fbbf24; }
+    
+    .newsletter {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    
+    .newsletter h3 { margin-bottom: 0.5rem; }
+    .newsletter p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    
+    .newsletter-form button {
+      padding: 0.6rem 1.25rem;
+      background: var(--text);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    footer p { color: var(--text-lighter); font-size: 0.85rem; }
+    footer a { color: var(--text-light); text-decoration: none; }
+    
+    @media (max-width: 600px) {
+      .intro h1 { font-size: 1.6rem; }
+      nav { display: none; }
+      .newsletter-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Trading Insights</a>
+    <nav>
+      <a href="/archiv/">Archiv</a>
+      <a href="/ueber-mich/">Über mich</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>Mein Trading-Tagebuch</h1>
+    <p>Seit 2024 teste ich verschiedene Trading-Plattformen und Systeme – mit echtem Geld. Hier dokumentiere ich meine Erfahrungen, Fehler und alles was ich lerne.</p>
+    <div class="author-box">
+      <div class="author-avatar">
+        <img src="/images/profile.svg" alt="Timon B.">
+      </div>
+      <div class="author-meta">
+        <strong>Timon B.</strong>
+        <span>Hobby-Trader aus Frankfurt</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="year-divider">2026</div>
+  
+  <div class="articles">
+    <a href="/peak-momentum/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">19. Jan 2026</span>
+        <span class="article-tag tag-positive">Erfahrung</span>
+      </div>
+      <h3>Peak Momentum nach 6 Monaten – Mein Fazit zum KI-Trading</h3>
+      <p>Vor einem halben Jahr hab ich mit Peak Momentum angefangen. Zeit für ein Fazit: Was lief gut, was nicht?</p>
+      <div class="article-footer">
+        <span>11 Min.</span>
+        <div class="rating">
+          <span class="stars">★★★★☆</span>
+          <span>4.2</span>
+        </div>
+        <span>💬 23</span>
+      </div>
+    </a>
+    
+    <a href="/etoro/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">5. Jan 2026</span>
+        <span class="article-tag tag-mixed">Erfahrung</span>
+      </div>
+      <h3>1 Jahr eToro Copy Trading – War's das wert?</h3>
+      <p>Mein eToro-Experiment ist offiziell vorbei. Das Ergebnis ist... durchwachsen.</p>
+      <div class="article-footer">
+        <span>9 Min.</span>
+        <div class="rating">
+          <span class="stars">★★★☆☆</span>
+          <span>3.0</span>
+        </div>
+        <span>💬 31</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="year-divider">2025</div>
+  
+  <div class="articles">
+    <a href="/quantum-ai/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">28. Dez 2025</span>
+        <span class="article-tag tag-negative">Warnung</span>
+      </div>
+      <h3>Quantum AI: 500€ weg – Mein teuerster Fehler</h3>
+      <p>Peinlich, aber ich muss es loswerden. Bin auf einen Scam reingefallen.</p>
+      <div class="article-footer">
+        <span>6 Min.</span>
+        <span>💬 47</span>
+      </div>
+    </a>
+    
+    <a href="/the5ers/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">15. Dez 2025</span>
+        <span class="article-tag tag-positive">Erfahrung</span>
+      </div>
+      <h3>The5%ers als FTMO-Alternative? Mein erster Eindruck</h3>
+      <p>Nach den FTMO-Struggles wollte ich was Neues probieren. Erste Eindrücke nach 3 Wochen.</p>
+      <div class="article-footer">
+        <span>7 Min.</span>
+        <div class="rating">
+          <span class="stars">★★★★☆</span>
+          <span>4.0</span>
+        </div>
+        <span>💬 12</span>
+      </div>
+    </a>
+    
+    <a href="/trade-republic/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">2. Dez 2025</span>
+        <span class="article-tag tag-neutral">Meinung</span>
+      </div>
+      <h3>Warum ich Trade Republic nicht mehr zum Traden nutze</h3>
+      <p>Für ETF-Sparpläne top, für aktives Trading? Nee. Hier meine Gründe.</p>
+      <div class="article-footer">
+        <span>4 Min.</span>
+        <span>💬 19</span>
+      </div>
+    </a>
+    
+    <a href="/ftmo/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">8. Okt 2025</span>
+        <span class="article-tag tag-mixed">Erfahrung</span>
+      </div>
+      <h3>FTMO Challenge #3: Endlich bestanden!</h3>
+      <p>ES HAT GEKLAPPT. Dritter Versuch, diesmal durch. Was ich anders gemacht habe.</p>
+      <div class="article-footer">
+        <span>8 Min.</span>
+        <div class="rating">
+          <span class="stars">★★★★☆</span>
+          <span>3.8</span>
+        </div>
+        <span>💬 34</span>
+      </div>
+    </a>
+    
+    <a href="/warum-trading/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">12. Jul 2025</span>
+        <span class="article-tag tag-neutral">Start</span>
+      </div>
+      <h3>Neues Experiment: Peak Momentum (KI-Trading)</h3>
+      <p>Ein Kollege schwärmt seit Wochen davon. Klingt zu gut um wahr zu sein, aber ich probier's mal.</p>
+      <div class="article-footer">
+        <span>4 Min.</span>
+        <span>💬 15</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="year-divider">2024</div>
+  
+  <div class="articles">
+    <a href="/jahresrueckblick-2024/" class="article-card">
+      <div class="article-meta">
+        <span class="article-date">29. Dez 2024</span>
+        <span class="article-tag tag-neutral">Rückblick</span>
+      </div>
+      <h3>Jahresrückblick 2024: Mein erstes Trading-Jahr</h3>
+      <p>Was für ein Jahr. Viel gelernt, einiges verloren, aber auch erste Erfolge.</p>
+      <div class="article-footer">
+        <span>10 Min.</span>
+        <span>💬 8</span>
+      </div>
+    </a>
+  </div>
+
+  <section class="newsletter">
+    <h3>Updates per Mail?</h3>
+    <p>Wenn ich was Neues teste, schreib ich's hier. Kein Spam.</p>
+    <form class="newsletter-form" action="/newsletter-danke/" method="get">
+      <input type="email" name="email" placeholder="deine@email.de" required>
+      <button type="submit">Anmelden</button>
+    </form>
+  </section>
+
+  <section class="comments-info">
+    <p>💬 Kommentare werden unter den einzelnen Artikeln angezeigt.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Trading Insights · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
+</footer>
+
+</body>
+</html>
